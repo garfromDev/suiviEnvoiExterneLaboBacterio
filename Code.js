@@ -56,7 +56,7 @@ function UpdateDynamicValidationForColumns(colToUpdate) {
   if (isNaN(startRow)) { return; }
   let maxRow = Math.min(startRow + NB_ROW_TO_HANDLE, sh.getLastRow());
   let range = sh.getRange(startRow - 1, colToUpdate[0],
-    maxRow,
+    maxRow - startRow + 1,
     colToUpdate[colToUpdate.length - 1] - colToUpdate[0] + 1);
   var rules = range.getDataValidations();
   var dataRange, rule, criteria, args, target;
